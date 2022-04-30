@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+import extractor.views
+
 urlpatterns = [
-    path('extractor/', include('extractor.urls')),
-    path('admin/', admin.site.urls),
-    path('', include('extractor.urls'))
+    path('', extractor.views.index, name='form'),
+    path('extract/', extractor.views.extract, name='extract'),
+    path('admin/', admin.site.urls)
 ]
